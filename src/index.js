@@ -5,6 +5,12 @@ const handlebars = require('express-handlebars');
 const app = express();
 const port = 3000;
 
+
+
+// connect to db
+const db = require('./config/db') 
+db.connect();
+
 // middleware xu li form du lieu
 app.use(express.urlencoded());
 app.use(express.json());
@@ -22,12 +28,12 @@ app.engine(
     }),
 );
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resoures/views'));
+app.set('views', path.join(__dirname, 'resoures','views')); 
 
 // Router init
 const route = require('./routes');
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(` app listening on port ${port}`);
 });
