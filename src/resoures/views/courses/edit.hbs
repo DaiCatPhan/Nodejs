@@ -1,28 +1,37 @@
-<div class="mt-4">
+{{!-- <div class="mt-4">
     <h3>Cap nhat khoa hoc</h3>
     <div class=" mt-4">
-   <form method="POST" action="/courses/{{course._id}}?_method=PUT">
-    <div class="form-group">
-            <label for="name" class="form-label">Name</label> <br>
-            <input type="text" name="name" class="form-control" value="{{course.name}}" id="name"> 
-        </div>
-        <div class="form-group">
-            <label for="image">image</label> <br>
-            <input type="text" name="image" class="form-control" value="{{course.image}}" id="image">
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label> <br> 
-            <textarea type="text" name="description" class="form-control" id="description"> {{course.description}}</textarea>
-        </div>
-        {{!-- <div class="form-group">
-            <label for="videoID" class="form-label">Video</label> <br>
-            <input type="text" name="videoID" class="form-control" value="{{course.videoID}}" id="videoID ">
-        </div> --}}
-        <div class="form-group">
-            <label for="level" class="form-label">Level</label> <br>
-            <input type="text" name="level" class="form-control" value="{{course.level}}" id="level"> 
-        </div>
-        <button type="submit" class="btn btn-primary mt-3">Luu lai</button>  
-    </form>
-</div>
+        <form method="POST" action="/courses/{{course._id}}?_method=PUT">
+            <div class="form-group">
+                <label for="name" class="form-label">Name</label> <br>
+                <input type="text" name="name" class="form-control" value="{{course.name}}" id="name"> 
+            </div>
+            <div class="form-group">
+                <label for="image">image</label> <br>
+                <input type="text" name="image" class="form-control" value="{{course.image}}" id="image">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label> <br> 
+                <textarea type="text" name="description" class="form-control" id="description"> {{course.description}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="level" class="form-label">Level</label> <br>
+                <input type="text" name="level" class="form-control" value="{{course.level}}" id="level"> 
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Luu lai</button>  
+         </form>
+    </div>
+</div> --}}
+
+<div class="mt-4">
+    <h3>Cap nhat thông báo</h3>
+    <div class=" mt-4">
+        <form method="POST" action="/courses/{{notes._id}}?_method=PUT">
+            <div class="form-group">
+                <label for="thongbao" class="form-label">Thông báo</label> <br>
+                <input type="text" name="thongbao" class="form-control" value="{{notes.thongbao}}" id="thongbao"> 
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Luu lai</button>  
+         </form>
+    </div>
 </div>

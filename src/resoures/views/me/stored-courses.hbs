@@ -1,22 +1,20 @@
 <div class="mt-4">
-    <h3>Khóa học của tôi</h3>
+    <h3>Thông báo của tôi</h3>
 
     <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Tên khóa học</th>
-      <th scope="col">Trình độ</th>
+      <th scope="col">Thông báo</th>
       <th scope="col">Thời gian tạo</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    {{#each courses}}
+    {{#each notes}}
     <tr>
       <th scope="row">{{ sum @index 1}}</th> 
-      <td>{{this.name}}</td>
-      <td>{{this.level}}</td>
+      <td>{{this.thongbao}}</td>
       <td>{{this.createdAt}}</td>
       <td>
         <a href="/courses/{{this._id}}/edit" type="button" class="btn btn-link text-decoration-none">Sửa</a>
@@ -33,11 +31,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Xóa khóa học</h5>
+        <h5 class="modal-title">Xóa thông báo</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Bạn chắc chắn có muốn xóa khóc học !!!</p>
+        <p>Bạn chắc chắn có muốn xóa thông báo !!!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" id="btn-delete-course">Xóa</button>

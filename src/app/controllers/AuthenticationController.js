@@ -1,4 +1,6 @@
 const User = require('../models/User') 
+const { mutipleMongooseToObject } = require('../../util/mongoose')
+
 const { mongooseToObject } = require('../../util/mongoose') // chỉ là 1 khóa học , 1 document nên dùng mongoseToObject còn cái kia là 1 list
 const jwt = require('jsonwebtoken');
 
@@ -131,19 +133,24 @@ class AuthenticationController {
     // Phân trang :
     
     get_student_second(req , res , next){  
-        res.render('user/student') 
+        var data = req.data;
+        res.render('user/student',{
+            data : mongooseToObject(data)
+        }) 
     }
 
     get_teacher_second(req , res , next){
-        res.render('user/admin') 
+        User.find({})
+            .then(data => {
+                res.render('user/admin',{
+                    data: mutipleMongooseToObject(data) 
+                })
+            })
+            .catch(err => {
+                
+            })
+
     }
-
-    home(req , res , next){
-        res.render('/');
-    }
-
-
-
 } 
 
 

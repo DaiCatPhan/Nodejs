@@ -1,5 +1,7 @@
 const Course = require('../models/Course') 
 const { mongooseToObject } = require('../../util/mongoose') // chỉ là 1 khóa học , 1 document nên dùng mongoseToObject còn cái kia là 1 list
+const Note = require('../models/Note') 
+const { mutipleMongooseToObject } = require('../../util/mongoose')
 
 class CourseController {
     // Get courses : slug
@@ -31,21 +33,21 @@ class CourseController {
 
     // GET  /courses/:id/edit
     edit(req,res,next){
-        Course.findById(req.params.id)
-            .then(course =>  res.render('courses/edit',{
-                course : mongooseToObject(course)
+        Note.findById(req.params.id)
+            .then(notes =>  res.render('courses/edit',{
+                notes : mongooseToObject(notes)
             }))
     }
      // PUT  /courses/:id
     update(req,res,next){
-        Course.updateOne({_id: req.params.id}, req.body)
+        Note.updateOne({_id: req.params.id}, req.body)
             .then(()=> res.redirect('/me/stored/courses'))
             .catch(next)
     }
 
      // DELETE  /courses/:id
     destroy(req,res,next){
-        Course.deleteOne({_id: req.params.id}) // id là điều kiện để xóa
+        Note.deleteOne({_id: req.params.id}) // id là điều kiện để xóa
             .then(()=> res.redirect('back')) // redirect la chuyen huong 
             .catch(next)
     }

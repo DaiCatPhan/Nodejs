@@ -2,6 +2,10 @@
   max-width: 50%;
 }
 
+.ml-15{
+  margin-left: 15px;
+}
+
 .ml-auto{
   margin-left: auto;
 }
