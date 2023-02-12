@@ -140,7 +140,9 @@ class AuthenticationController {
     }
 
     get_teacher_second(req , res , next){
-        User.find({})
+        User.find({
+            "email": {$not:{$eq: "admin@gmail.com"}} // tìm những thằng có email không bằng : "admin@gmail.com"
+        })
             .then(data => {
                 res.render('user/admin',{
                     data: mutipleMongooseToObject(data) 
@@ -150,6 +152,10 @@ class AuthenticationController {
                 
             })
 
+    }
+
+    edit(req , res , next ){
+        res.json("Edit teacher")
     }
 } 
 

@@ -1,14 +1,24 @@
-<h1>ADMIN PAYOUT</h1>
+<h1>Quản lí sinh viên</h1>
 
 <div class="mt-4">
     <div class="row">
         {{#each data}}
-        <div class="col-sm-6 col-lg-4 mt-4 ">
-            <div class="card" style="width: 18rem;">
-                <h1>{{this.mssv}}</h1>
-                <h1>{{this.email}}</h1>
-                <h1>{{this.pass}}</h1>
-                <h1>{{this.point}}</h1>
+        <div class="col-sm-6 col-lg-4 mt-2 mb-4 ">
+            <div class="border" >
+                <div class="box " style="margin-left: 8px; margin-right: 8px;">
+                    <div class="d-flex  justify-content-between">
+                        <p>ho va ten  : {{this.ten}}</p>    
+                        <p class=""><a href="/authentication/teacher/edit" class="text-decoration-none">Xem chi tiết</a></p>
+                    </div>
+                    <p>mssv : {{this.mssv}}</p>
+                    <p>email : {{this.email}}</p>
+                    <p>Bài làm : Chưa nộp</p>
+                    <form action="POST" class="form-inline">
+                        <label for="point">Nhập điểm</label>
+                        <input type="text" class="w-25" name="point" id="point" > 
+                        <button type="submit" class="btn btn-success mt-2 w-100" >Chấm điểm</button>    
+                    </form>
+                </div>
             </div>
         </div>
         {{/each}}  

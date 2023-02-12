@@ -12,7 +12,9 @@ router.get('/login', authentication.login);
 
 
 router.get('/student', authentication.checkLogin,authentication.checkStudent , authentication.get_student_second);  
-router.get('/teacher', authentication.checkLogin,authentication.checkTeacher , authentication.get_teacher_second);   
+router.get('/teacher', authentication.checkLogin,authentication.checkTeacher , authentication.get_teacher_second); 
+
+router.get('/teacher/edit',authentication.edit);
 
 
 
