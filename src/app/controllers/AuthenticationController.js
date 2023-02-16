@@ -139,6 +139,7 @@ class AuthenticationController {
         }) 
     }
 
+    // GET authentication/teacher lấy những tài khoản mà k phải admin ra 
     get_teacher_second(req , res , next){
         User.find({
             "email": {$not:{$eq: "admin@gmail.com"}} // tìm những thằng có email không bằng : "admin@gmail.com"
@@ -159,6 +160,17 @@ class AuthenticationController {
                 if(data){
                     User.updateOne({_id: req.params.id}, req.body)
                     .then(()=> res.redirect('/authentication/teacher'))
+                    .catch(next)
+                }
+            })
+    }
+
+    file(req , res , next){
+        User.findById(req.params.id)
+            .then(data => {
+                if(data){
+                    User.updateOne({_id: req.params.id}, req.body)
+                    .then(()=> res.redirect('/authentication/student'))
                     .catch(next)
                 }
             })

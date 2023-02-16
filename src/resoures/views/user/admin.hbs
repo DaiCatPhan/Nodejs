@@ -12,7 +12,7 @@
                     </div>
                     <p><b>MSSV</b> : {{this.mssv}}</p>
                     <p><b>Email</b> : {{this.email}}</p>
-                    <p><b>Bài làm</b> : Chưa nộp</p>
+                    <p><b>Bài làm</b> : {{this.file}}</p>
                     <p><b>Điểm số</b> : <span style="color: red;"> {{this.point}}</span></p>
                     <form method="POST" action="/authentication/teacher/{{this._id}}?_method=PUT" class="form-inline">
                         <label for="point"><b>Nhập điểm</b></label>

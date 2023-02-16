@@ -8,26 +8,31 @@
                 <hr>
             </header>
             <main>
-                <h3>Thông báo về lớp học</h3>
-                {{!-- {{#each notes}}
-                <form action="" class="mt-4 mb-4 border">
-                    <div class="ml-15">
-                        <p class="">
-                            {{data.thongbao}}
-                        </p>
-                        <p class="text-end mx-2">
-                            {{data.createdAt}}
-                        </p>
+               <div class="mt-4">
+                    <div class="row">
+                        <div class="col-7 mt-2 mb-4 ">
+                            {{!-- <div class="border border-2 rounded" > --}}
+                            <div class="" >
+                                <div class="box " style="margin-left: 8px; margin-right: 8px;">
+                                    <div class="d-flex  justify-content-between">
+                                        <p><b>Họ và tên</b>  : {{data.ten}}</p>    
+                                    </div>
+                                    <p><b>MSSV</b> : {{data.mssv}}</p>
+                                    <p><b>Email</b> : {{data.email}} </p>
+                                    <p><b>Bài làm</b> : {{data.file}}</p>
+                                    <p><b>Điểm số</b> : <span style="color: red;">{{data.point}} </span></p>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
-                </form>
-                {{/each}} --}}
+                </div>
             </main>
         </div>
         <div class="col-lg-4">
-            <form action=""  method="" class="border border-5 rounded text-center white ">
-                <h1>Bài tập của bạn</h1>
-                <input type="file" class="mt-3">
-                <button class="btn btn-primary my-3">Đánh dấu là đã hoàn thành</button>
+            <form method="POST" action="/authentication/student/{{data._id}}?_method=PUT" class="border border-5 rounded text-center white ">
+                <label for="file"><h1>Bài tập của bạn</h1></label>
+                <input type="file" class="mt-3" name="file" id="file">
+                <button type="submit" class="btn btn-primary my-3">Đánh dấu là đã hoàn thành</button>
             </form>
         </div>
     </div>

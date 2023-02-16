@@ -16,6 +16,7 @@ router.get('/teacher', authentication.checkLogin,authentication.checkTeacher , a
 
 router.get('/teacher/edit',authentication.edit);
 router.put('/teacher/:id',authentication.point); 
+router.put('/student/:id',authentication.file); 
 
 
 
