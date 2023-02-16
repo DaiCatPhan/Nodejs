@@ -151,12 +151,25 @@ class AuthenticationController {
             .catch(err => {
                 
             })
-
     }
+
+    point(req , res , next){
+        User.findById(req.params.id)
+            .then(data => {
+                if(data){
+                    User.updateOne({_id: req.params.id}, req.body)
+                    .then(()=> res.redirect('/authentication/teacher'))
+                    .catch(next)
+                }
+            })
+    }
+
+
 
     edit(req , res , next ){
         res.json("Edit teacher")
     }
+
 } 
 
 

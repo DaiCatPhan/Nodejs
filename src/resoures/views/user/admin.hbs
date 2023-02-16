@@ -4,17 +4,18 @@
     <div class="row">
         {{#each data}}
         <div class="col-sm-6 col-lg-4 mt-2 mb-4 ">
-            <div class="border" >
+            <div class="border border-2 rounded" >
                 <div class="box " style="margin-left: 8px; margin-right: 8px;">
                     <div class="d-flex  justify-content-between">
-                        <p>ho va ten  : {{this.ten}}</p>    
+                        <p><b>Họ và tên</b>  : {{this.ten}}</p>    
                         <p class=""><a href="/authentication/teacher/edit" class="text-decoration-none">Xem chi tiết</a></p>
                     </div>
-                    <p>mssv : {{this.mssv}}</p>
-                    <p>email : {{this.email}}</p>
-                    <p>Bài làm : Chưa nộp</p>
-                    <form action="POST" class="form-inline">
-                        <label for="point">Nhập điểm</label>
+                    <p><b>MSSV</b> : {{this.mssv}}</p>
+                    <p><b>Email</b> : {{this.email}}</p>
+                    <p><b>Bài làm</b> : Chưa nộp</p>
+                    <p><b>Điểm số</b> : <span style="color: red;"> {{this.point}}</span></p>
+                    <form method="POST" action="/authentication/teacher/{{this._id}}?_method=PUT" class="form-inline">
+                        <label for="point"><b>Nhập điểm</b></label>
                         <input type="text" class="w-25" name="point" id="point" > 
                         <button type="submit" class="btn btn-success mt-2 w-100" >Chấm điểm</button>    
                     </form>

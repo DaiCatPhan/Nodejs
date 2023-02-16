@@ -1,14 +1,35 @@
-<div class="mt-4">
+<div class="mt-4"> 
     <div class="row">
-        <div class="col-lg-3">
-            <button class="btn btn-success">HOC NGAY</button>
+        <div class="col-lg-8    ">
+            <header>
+                <h1>Niên luận</h1>
+                <p>Giáo viên giảng dạy</p>
+                <span>100 điểm</span>
+                <hr>
+            </header>
+            <main>
+                <h3>Thông báo về lớp học</h3>
+                {{!-- {{#each notes}}
+                <form action="" class="mt-4 mb-4 border">
+                    <div class="ml-15">
+                        <p class="">
+                            {{data.thongbao}}
+                        </p>
+                        <p class="text-end mx-2">
+                            {{data.createdAt}}
+                        </p>
+                    </div>
+                </form>
+                {{/each}} --}}
+            </main>
         </div>
-        <div class="col-lg-9">
-            <h2>{{data.email}}</h2>
-            <h3>{{data.mssv}}</h3>
+        <div class="col-lg-4">
+            <form action=""  method="" class="border border-5 rounded text-center white ">
+                <h1>Bài tập của bạn</h1>
+                <input type="file" class="mt-3">
+                <button class="btn btn-primary my-3">Đánh dấu là đã hoàn thành</button>
+            </form>
         </div>
     </div>
 </div>
 
-
-<h1>STUDENT</h1>

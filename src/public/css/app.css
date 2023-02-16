@@ -6,6 +6,10 @@
   margin-left: 15px;
 }
 
+.mr-30{
+  margin-right: 30px;
+}
+
 .ml-auto{
   margin-left: auto;
 }
@@ -15,4 +19,8 @@
   height: 32px;
   border-radius: 50%;
   margin-right: 5px;
+}
+
+.white{
+  background-color:   #ffffff;
 }
