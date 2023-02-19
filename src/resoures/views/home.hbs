@@ -11,23 +11,25 @@
                 <form action="" class="border">
                     <h3>Sắp đến hạn</h3>
                     <p>Tuyệt vời không có bài tập nào hết hạn cả</p>
-                </form>
+                </form> 
             </div>
             <div class="col-9">
+                <h5 href=""  class="text-center mb-3">
+                    Thông báo
+                    {{{sortable 'createdAt'_sort}}}
+                </h5>
                 <form action="/note"  method="POST" name="form" class="form-inline d-flex">
-                    {{!-- <input name="thongbao" type="textarea" class="form-control pb-4 mr-5" placeholder="Thông báo nội dung nào đó cho lớp học"> --}}
-                    <textarea name="thongbao" id="" cols="100" rows="2" placeholder="Thông báo nội dung nào đó cho lớp học"></textarea>
+                    <textarea name="thongbao" id="" cols="100" rows="2" placeholder="Thông báo nội dung nào đó cho lớp học" class="mr-10"></textarea>
                     <button id="btn" type="" class="btn btn-success" >Đăng</button>
                 </form>
-
                 <hr>
-
                 {{#each notes}}
-                <form action="" class="mt-4 mb-4 border">
-                    <div class="ml-15">
+                <form action="" class="mt-4 mb-4 border rounded border-dark  bg-light">
+                    <div class="ml-15 ">
                         <p class="">
-                        {{this.thongbao}}
+                            {{this.thongbao}}
                         </p>
+                        
                         <p class="text-end mx-2">
                             {{this.createdAt}}
                         </p>
@@ -38,4 +40,3 @@
         </div>
     </main>
 </div>
-

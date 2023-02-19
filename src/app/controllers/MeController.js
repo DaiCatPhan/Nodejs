@@ -8,7 +8,14 @@ const { mongooseToObject } = require('../../util/mongoose')
 
 class MeController{
     storedCourses(req , res  ,next){
-        Note.find({})
+        let courseQuery = Note.find({});
+        if(req.query.hasOwnProperty ('_sort')){
+            courseQuery = courseQuery.sort({
+                [req.query.column] : req.query.type
+            });
+        }
+
+        courseQuery
         .then(notes => res.render('me/stored-courses',{
             notes : mutipleMongooseToObject(notes)
         }))

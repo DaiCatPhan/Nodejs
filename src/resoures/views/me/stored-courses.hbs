@@ -1,29 +1,34 @@
 <div class="mt-4">
-    <h3>Thông báo của tôi</h3>
-
+  <h3>Thông báo của tôi</h3>
     <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Thông báo</th>
-      <th scope="col">Thời gian tạo</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each notes}}
-    <tr>
-      <th scope="row">{{ sum @index 1}}</th> 
-      <td>{{this.thongbao}}</td>
-      <td>{{this.createdAt}}</td>
-      <td>
-        <a href="/courses/{{this._id}}/edit" type="button" class="btn btn-link text-decoration-none">Sửa</a>
-        <a href="" type="button" class="btn btn-link text-decoration-none" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-courses-modal">Xóa</a>
-      </td>
-    </tr>
-    {{/each}}
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">
+            Thông báo
+            {{{sortable 'thongbao'_sort}}} 
+          </th>
+          <th scope="col">
+            Thời gian tạo  
+            {{{sortable 'createdAt'_sort}}} 
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each notes}}
+        <tr>
+          <th scope="row">{{ sum @index 1}}</th> 
+          <td>{{this.thongbao}}</td>
+          <td>{{this.createdAt}}</td> 
+          <td>
+            <a href="/courses/{{this._id}}/edit" type="button" class="btn btn-link text-decoration-none">Sửa</a>
+            <a href="" type="button" class="btn btn-link text-decoration-none" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-courses-modal">Xóa</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
 </div>
 
 {{!-- Confirm delete course  --}}

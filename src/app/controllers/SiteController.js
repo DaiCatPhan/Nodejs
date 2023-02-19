@@ -1,7 +1,9 @@
 const Course = require('../models/Course') 
+const User = require('../models/User') 
 const Note = require('../models/Note') 
 const { mutipleMongooseToObject } = require('../../util/mongoose')
 const { mongooseToObject } = require('../../util/mongoose')
+const jwt = require('jsonwebtoken');
 
 class SiteController {
     // GET /
@@ -15,16 +17,25 @@ class SiteController {
     //         })
     //         .catch(next ); 
     // } 
-    index(req, res,next) {
-        // Nay la dung promise lay du lieu tu modal tra ve client
-        Note.find({})
-            .then(notes => { 
-                res.render('home',{
-                    notes: mutipleMongooseToObject(notes) 
-                });
-            })
-            .catch(next ); 
-    } 
+
+
+
+    index(req , res  ,next){
+        let courseQuery = Note.find({});
+        if(req.query.hasOwnProperty ('_sort')){
+            courseQuery = courseQuery.sort({
+                [req.query.column] : req.query.type
+            });
+        }
+
+        courseQuery
+        .then(notes => res.render('home',{
+            notes : mutipleMongooseToObject(notes)
+        }))
+        .catch(next)
+    }
+
+
 
     thongbao(req , res , next){
         // const thongbao = req.body.thongbao;

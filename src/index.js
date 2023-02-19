@@ -5,11 +5,17 @@ const handlebars = require('express-handlebars');
 const methodOverride = require('method-override');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
+const multer  = require('multer');
+const SortMiddleware = require('./app/middlewares/SortMiddleware');
+
 const app = express();
 const port = 3000;
 
+// middleware
+app.use(SortMiddleware);
+
 // cookie-parser
-app.use(cookieParser())
+app.use(cookieParser());
 
 // connect to mongoogseDB
 const db = require('./config/db') 
@@ -34,7 +40,27 @@ app.engine(
         extname: '.hbs',
         helpers: {
             sum: (a,b) => a+b, 
-         }
+            sortable: (field , sort) => {
+                const sortType = field === sort.column ? sort.type : 'default' ;
+                const icons = {
+                    default: "fas fa-sort" ,
+                    desc: "fas fa-sort-amount-up",
+                    asc :"fas fa-sort-amount-down-alt", 
+                }
+                const types = {
+                    default: 'desc',
+                    asc: 'desc',
+                    desc: 'asc'
+                }
+                const icon = icons[sortType]
+                const type = types[sortType]
+                return `
+                    <a href="?_sort&column=${field}&type=${type}">
+                        <i class="${icon}"></i>
+                    </a>
+                `
+            },
+        }
     }),
 );
 app.set('view engine', 'hbs');

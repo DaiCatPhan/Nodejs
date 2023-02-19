@@ -170,7 +170,8 @@ class AuthenticationController {
             .then(data => {
                 if(data){
                     User.updateOne({_id: req.params.id}, req.body)
-                    .then(()=> res.redirect('/authentication/student'))
+                    // .then(()=> res.redirect('/authentication/student'))
+                    .then(()=> res.json(data))
                     .catch(next)
                 }
             })
@@ -179,7 +180,12 @@ class AuthenticationController {
 
 
     edit(req , res , next ){
-        res.json("Edit teacher")
+        User.find({
+             "email": {$not:{$eq: "admin@gmail.com"}}
+            })
+            .then(data => {
+                res.json(data)
+            })
     }
 
 } 
