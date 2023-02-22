@@ -166,15 +166,17 @@ class AuthenticationController {
     }
 
     file(req , res , next){
-        User.findById(req.params.id)
-            .then(data => {
-                if(data){
-                    User.updateOne({_id: req.params.id}, req.body)
-                    // .then(()=> res.redirect('/authentication/student'))
-                    .then(()=> res.json(data))
-                    .catch(next)
-                }
-            })
+        var file = req.body ;
+        res.json(file)
+        // User.findById(req.params.id)
+        //     .then(data => {
+        //         if(data){
+        //             User.updateOne({_id: req.params.id}, req.body)
+        //             // .then(()=> res.redirect('/authentication/student'))
+        //             .then(()=> res.json(data))
+        //             .catch(next)
+        //         }
+        //     })
     }
 
 

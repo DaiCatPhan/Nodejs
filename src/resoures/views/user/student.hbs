@@ -19,7 +19,7 @@
                                     </div>
                                     <p><b>MSSV</b> : {{data.mssv}}</p>
                                     <p><b>Email</b> : {{data.email}} </p>
-                                    <p><b>Bài làm</b> : {{data.file}}</p>
+                                    <p><b>Bài làm</b> : <a href="{{data.image}}">{{data.image}}</a></p> 
                                     <p><b>Điểm số</b> : <span style="color: red;">{{data.point}} </span></p>
                                 </div>
                             </div>
@@ -29,11 +29,17 @@
             </main>
         </div>
         <div class="col-lg-4">
-            <form method="POST" action="/authentication/student/{{data._id}}?_method=PUT" class="border border-5 rounded text-center white "  enctype = "multipart/form-data" > 
+            {{!-- <form method="POST" action="/authentication/student/{{data._id}}?_method=PUT" class="border border-5 rounded text-center white "  enctype = "multipart/form-data" > 
                 <label for="file"><h1>Bài tập của bạn</h1></label>
                 <input type="file" class="mt-3" name="file" id="file">
                 <button type="submit" class="btn btn-primary my-3">Đánh dấu là đã hoàn thành</button>
+            </form> --}}
+            <form method="POST" action="/uploads/{{data._id}}?_method=PUT" class="border border-5 rounded text-center white "  enctype = "multipart/form-data" > 
+                <label for="image"><h1>Bài tập của bạn</h1></label>
+                <input type="file" class="mt-3" name="image" id="image">
+                <button type="submit" class="btn btn-primary my-3">Đánh dấu là đã hoàn thành</button>
             </form>
+            
         </div>
     </div>
 </div>

@@ -10,6 +10,7 @@ class UserController {
     infouser(req, res,next) {
         res.render('search');
     }
+
 }
 
 module.exports = new UserController();

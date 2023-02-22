@@ -12,7 +12,8 @@ const User = new Schema({
   pass: {type: String },
   age: {type: String },
   ten: {type: String },
-  file: {type: Object },
+  file: {type: String },
+  image: {type: String },
   role:{type : String},
   point: {type: Number},
   slug: { type: String, slug: 'email', unique: true }, // unique là chỉ tồn tại 1 cái slug thôi , k trùng nhau á

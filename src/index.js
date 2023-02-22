@@ -5,11 +5,21 @@ const handlebars = require('express-handlebars');
 const methodOverride = require('method-override');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
-const multer  = require('multer');
 const SortMiddleware = require('./app/middlewares/SortMiddleware');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const multer = require('multer');
+const cors = require('cors');
+
 
 const app = express();
 const port = 3000;
+
+// cor
+app.use(cors({
+    credentials: true,
+    origin: ['http://localhost:3000']
+  }));
 
 // middleware
 app.use(SortMiddleware);
