@@ -29,18 +29,24 @@
             </main>
         </div>
         <div class="col-lg-4">
-            {{!-- <form method="POST" action="/authentication/student/{{data._id}}?_method=PUT" class="border border-5 rounded text-center white "  enctype = "multipart/form-data" > 
-                <label for="file"><h1>Bài tập của bạn</h1></label>
-                <input type="file" class="mt-3" name="file" id="file">
-                <button type="submit" class="btn btn-primary my-3">Đánh dấu là đã hoàn thành</button>
-            </form> --}}
-            <form method="POST" action="/uploads/{{data._id}}?_method=PUT" class="border border-5 rounded text-center white "  enctype = "multipart/form-data" > 
-                <label for="image"><h1>Bài tập của bạn</h1></label>
-                <input type="file" class="mt-3" name="image" id="image">
-                <button type="submit" class="btn btn-primary my-3">Đánh dấu là đã hoàn thành</button>
+            <form  method="POST" action="/uploads/{{data._id}}?_method=PUT" class="border border-5 rounded text-center white "  enctype = "multipart/form-data" name="form_nopbai" > 
+                <label for="image"><h1>Bài tập của bạn</h1></label> 
+                <input required  type="file" class="mt-3" name="image" id="image" style="width: 220px;"> <span id="submitted_file"></span>
+                <button id="btn_file" type="submit" class="btn btn-primary my-3">Đánh dấu là đã hoàn thành</button>
             </form>
             
         </div>
     </div>
 </div>
+
+<script>
+    var form_file = document.forms['form_nopbai'];
+    var submitted_file = document.getElementById("submitted_file");
+    var btn_file = document.getElementById("btn_file");
+    
+    btn_file.addEventListener("click", (e) => {
+        submitted_file.innerHTML = `<h1>Đã nộp</h1>`
+    });
+    
+</script>
 

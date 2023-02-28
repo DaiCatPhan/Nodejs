@@ -32,3 +32,19 @@
 .color_primary{
   color: #f0f2f5;
 }
+
+.hover_large{
+  transition: 0.5s;
+  border: none;
+  box-shadow: 2px 2px 2px rgb(185, 182, 182) ;
+  
+}
+
+.hover_large:hover{
+  transform: scale(1.05);
+}
+
+.notification{
+  overflow: hidden;
+}
+
