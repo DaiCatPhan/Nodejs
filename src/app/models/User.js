@@ -13,6 +13,7 @@ const User = new Schema({
   age: {type: String },
   ten: {type: String },
   file: {type: String },
+  detai: {type: String },
   image: {type: String },
   role:{type : String},
   point: {type: Number},

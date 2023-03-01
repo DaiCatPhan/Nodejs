@@ -1,17 +1,17 @@
 
 <div class="container ">
     <header class="row mt-4">
-        <div class="box bg-secondary " style="height: 160px; border-radius: 5px;">
-            <h1>Niên Luận Cơ Sở</h1>
-        </div>
+        <img src="" alt="" class="img_bg">
     </header>
     <main>
         <div class="row mt-4">
-            <div class="col-3">
-                <form action="" class="border">
-                    <h3>Sắp đến hạn</h3>
-                    <p>Tuyệt vời không có bài tập nào hết hạn cả</p>
-                </form> 
+            <div class="col-3 text-center">
+                <p><b>Trường Đại Học Cần Thơ</b></p>
+                <ul class="list-group list-group-flush mt-5 text-center">
+                    <li class="list-group-item hover_large     "><a href="me/stored/courses" class="text-decoration-none color_black">Xem thông báo</a></li>
+                    <li class="list-group-item hover_large mt-2"><a href="" class="text-decoration-none color_black">Danh sách sinh viên</a></li>
+                    <li class="list-group-item hover_large mt-2"><a href="#" class="text-decoration-none color_black">Phản hồi</a></li>
+                </ul>
             </div>
             <div class="col-9">
                 <h5 href=""  class="text-center mb-3">
@@ -19,17 +19,17 @@
                     {{{sortable 'createdAt'_sort}}}
                 </h5>
                 <form action="/note"  method="POST" name="form" class="form-inline d-flex">
-                    <textarea name="thongbao" id="" cols="100" rows="2" placeholder="Thông báo nội dung nào đó cho lớp học" class="mr-10"></textarea>
-                    <button id="btn" type="" class="btn btn-success" >Đăng</button>
+                    <textarea required name="thongbao" id="" cols="100" rows="2" placeholder="Thông báo nội dung nào đó cho lớp học" class="mr-10"></textarea>
+                    <button id="btn" type="" class="btn btn-success">Đăng</button>
                 </form>
                 <hr>
                 {{#each notes}}
-                    <div class=" hover_large mt-3 border rounded mb-3 ">
-                        <p class="notification">
+                    <div class=" hover_large mt-3 border rounded mb-3 row">
+                        <p class="notification word_wrap">
                             {{this.thongbao}}
                         </p>
                         
-                        <p class="text-end mx-2">
+                        <p class="text-end mx-2 ">
                             {{this.createdAt}}
                         </p>
                     </div>

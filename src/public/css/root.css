@@ -1,0 +1,33 @@
+/* Hover vô cho nó to lên  */
+.hover_large{
+    transition: 0.5s;
+    border: none;
+    box-shadow: 2px 2px 2px rgb(185, 182, 182) ;
+}
+  
+.hover_large:hover{
+transform: scale(1.05);
+background-color: #f5f2f2;
+}
+
+/* dòng dài quá thì nó tự xuống dòng  */
+.word_wrap{
+    word-wrap: break-word;
+}
+
+.color_black{
+    color: black;
+}
+
+.img_bg{
+    height: 160px;
+    width: 100%;
+}
+
+/* header{
+    background-image: url("https://bientapvien.org/wp-content/uploads/2022/06/p6-1024x576.webp");
+} */
+
+.width_300{
+    width: 300px;
+}

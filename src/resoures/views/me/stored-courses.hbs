@@ -18,10 +18,10 @@
       <tbody>
         {{#each notes}}
         <tr>
-          <th scope="row">{{ sum @index 1}}</th> 
-          <td>{{this.thongbao}}</td>
-          <td>{{this.createdAt}}</td> 
-          <td>
+          <th >{{ sum @index 1}}</th> 
+          <td class="word_wrap">{{this.thongbao}}</td>
+          <td> {{this.createdAt}}</td> 
+          <td >
             <a href="/courses/{{this._id}}/edit" type="button" class="btn btn-link text-decoration-none">Sửa</a>
             <a href="" type="button" class="btn btn-link text-decoration-none" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-courses-modal">Xóa</a>
           </td>
