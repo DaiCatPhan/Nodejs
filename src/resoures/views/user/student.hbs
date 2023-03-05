@@ -12,7 +12,7 @@
                     <div class="row">
                         <div class="col-7 mt-2 mb-4 ">
                             {{!-- <div class="border border-2 rounded" > --}}
-                            <div class="" >
+                            <div class="">
                                 <div class="box " style="margin-left: 8px; margin-right: 8px;">
                                     <div class="d-flex  justify-content-between">
                                         <p><b>Họ và tên</b>  : {{data.ten}}</p>    
@@ -45,13 +45,9 @@
 </div>
 
 <script>
-    var form_file = document.forms['form_nopbai'];
-    var submitted_file = document.getElementById("submitted_file");
-    var btn_file = document.getElementById("btn_file");
-    
-    btn_file.addEventListener("click", (e) => {
-        submitted_file.innerHTML = `<h1>Đã nộp</h1>`
-    });
-    
+    var nav_name = document.getElementById('nav_name');
+    var name_student = '{{data.ten}}';
+    nav_name.innerHTML = name_student;
 </script>
+
 

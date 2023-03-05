@@ -74,9 +74,9 @@ class AuthenticationController {
                 var token = jwt.sign({
                     _id : data._id 
                 },"mk")
-                res.cookie('token', token)
-                // res.json("Dang nhap thanh cong")
-                res.redirect('/');
+                res.cookie('token', token);
+                res.redirect('/authentication/student');
+                // res.redirect('/');
             }else{
                 res.status(500).json("Account không đúng");
             }
@@ -111,6 +111,7 @@ class AuthenticationController {
             res.status(500).json("Token k hop le");
         }
     }
+
 
     // check logout (đăng xuất )
     checkLogout(req , res , next){
