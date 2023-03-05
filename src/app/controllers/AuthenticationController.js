@@ -111,6 +111,33 @@ class AuthenticationController {
             res.status(500).json("Token k hop le");
         }
     }
+
+    // check logout (đăng xuất )
+    checkLogout(req , res , next){
+        try{
+            var token = req.cookies.token;
+            var idUser = jwt.verify(token , 'mk');
+            User.findOne({
+                _id : idUser
+            })
+            .then(data => {
+                if(data){
+                    res.clearCookie('token');
+                    res.redirect('/authentication/login');
+                    res.end();
+                    next();
+                }
+            })
+            .catch(err => {
+
+            })
+        }catch(err){
+            res.status(500).json("Bạn chưa đăng nhập");
+        }
+    }
+
+
+
     // check student 
     checkStudent(req, res , next){
         var role = req.data.role;
