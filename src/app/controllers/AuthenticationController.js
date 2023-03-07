@@ -75,8 +75,13 @@ class AuthenticationController {
                     _id : data._id 
                 },"mk")
                 res.cookie('token', token);
-                res.redirect('/authentication/student');
-                // res.redirect('/');
+
+
+                if(data.email == "admin@gmail.com"){
+                    res.redirect('/authentication/teacher');    
+                }else{
+                    res.redirect('/authentication/student');
+                }
             }else{
                 res.status(500).json("Account không đúng");
             }
@@ -101,14 +106,15 @@ class AuthenticationController {
                     req.data = data;
                     next();
                 }else{
-                    res.json("Bạn không có quyền")
+                    res.json("Bạn không có quyền");
                 }
             })
             .catch(err => {
 
             })
         }catch(err){
-            res.status(500).json("Token k hop le");
+            // res.status(500).json("Token k hop le");
+            res.render('404');
         }
     }
 
@@ -140,10 +146,10 @@ class AuthenticationController {
 
 
     // check student 
-    checkStudent(req, res , next){
+    checkStudent_teacher(req, res , next){
         var role = req.data.role;
         if(req.data.role === 'student' || req.data.role === 'teacher'){
-            next()
+            next();
         }else{
             res.json("NOT PERMISSION");
         }
@@ -152,7 +158,7 @@ class AuthenticationController {
     checkTeacher(req, res , next){
         var role = req.data.role;
         if(req.data.role === 'teacher'){
-            next()
+            next();
         }else{
             res.status(500).json("NOT PERMISSION"); 
         }
@@ -193,28 +199,18 @@ class AuthenticationController {
             })
     }
 
-    file(req , res , next){
-        var file = req.body ;
-        res.json(file)
-        // User.findById(req.params.id)
-        //     .then(data => {
-        //         if(data){
-        //             User.updateOne({_id: req.params.id}, req.body)
-        //             // .then(()=> res.redirect('/authentication/student'))
-        //             .then(()=> res.json(data))
-        //             .catch(next)
-        //         }
-        //     })
-    }
-
-
 
     edit(req , res , next ){
         User.find({
              "email": {$not:{$eq: "admin@gmail.com"}}
             })
             .then(data => {
-                res.json(data)
+                res.render('user/student_chitiet',{
+                    data: mutipleMongooseToObject(data) 
+                })
+            })
+            .catch(err => {
+                
             })
     }
 

@@ -17,13 +17,12 @@ router.get('/logout/stores', authentication.checkLogout );
 
 
 // phân trang student , teacher
-router.get('/student', authentication.checkLogin,authentication.checkStudent , authentication.get_student_second);  
-router.get('/teacher', authentication.checkLogin,authentication.checkTeacher , authentication.get_teacher_second); 
+router.get('/student', authentication.checkLogin,authentication.checkStudent_teacher , authentication.get_student_second);  
+router.get('/teacher', authentication.checkLogin,authentication.checkTeacher , authentication.  get_teacher_second); 
 
 // phân trang teacher
 router.get('/teacher/edit',authentication.edit);
 router.put('/teacher/:id',authentication.point); 
-router.put('/student/:id',authentication.file); 
 
 
 
